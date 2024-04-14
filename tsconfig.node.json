@@ -2,14 +2,14 @@
   "compilerOptions": {
 
     // "module": "esnext",
-    // "moduleResolution": "node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
 
     // from marks
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    // "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
 

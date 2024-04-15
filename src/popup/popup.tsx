@@ -5,6 +5,7 @@ import { PC } from "./PC";
 
 
 storeReadyPromise.then(() => {
+
     createRoot(document.getElementById("root") as HTMLElement).render(
         <React.StrictMode>
             <PC />

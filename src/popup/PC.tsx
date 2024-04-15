@@ -1,7 +1,7 @@
 import React from "react";
 import { useBearStore } from "../store";
 
-export const PC = () => {
+export const PC: () => React.JSX.Element = () => {
     const bears = useBearStore((state) => state.bears);
     const increase = useBearStore((state) => state.increase);
 

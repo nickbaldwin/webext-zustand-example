@@ -8,7 +8,7 @@
     // from marks
     "composite": true,
     "skipLibCheck": true,
-    "module": "ESNext",
+    "module": "esnext",
     // "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,

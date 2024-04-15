@@ -8,12 +8,10 @@ version: "0.1.0",
 background: {
 service_worker: "background.ts",
 },
-content_scripts: [
-{
-matches: ["http://*/*", "https://*/*", "file:///*"],
-js: ["content-script.tsx"],
+chrome_url_overrides: {
+    newtab: 'content.html',
 },
-],
+
 host_permissions: ["<all_urls>"],
 action: {
 default_popup: "popup.html",

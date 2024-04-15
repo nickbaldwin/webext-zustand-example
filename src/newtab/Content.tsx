@@ -1,8 +1,8 @@
-import { useBearStore } from '../store/store';
+import { useStore } from '../store/store';
 
 export const Content = () => {
-    const bears = useBearStore((state) => state.bears);
-    const increase = useBearStore((state) => state.increase);
+    const bears = useStore((state) => state.bears);
+    const increase = useStore((state) => state.increase);
 
     return (
         <div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { BearState, useBearStore } from '../store/store';
+import { BearState, useStore } from '../store/store';
 import { parseUrl } from '../helpers/domain';
 
 export const PC: () => React.JSX.Element = () => {
-    const bears = useBearStore((state: BearState) => state.bears);
-    const increase = useBearStore((state: BearState) => state.increase);
+    const bears = useStore((state: BearState) => state.bears);
+    const increase = useStore((state: BearState) => state.increase);
 
     const [tabInfo, setTabInfo] = React.useState('');
 

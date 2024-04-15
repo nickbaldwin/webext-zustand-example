@@ -1,17 +1,46 @@
 import { useStore } from '../store/store';
+import { MarksList, MarksMap } from '../store/schema';
 
 export const Content = () => {
-    const bears = useStore((state) => state.bears);
-    const increase = useStore((state) => state.increase);
+    const marksList: MarksList = useStore((state) => state.marksList);
 
+    const marks: MarksMap = useStore((state) => state.marksMap);
+    const addMark = useStore((state) => state.addMark);
+    const removeMark = useStore((state) => state.removeMark);
+
+    const bears = useStore((state) => state.bears);
+    const inc = useStore((state) => state.increase);
     return (
-        <div>
-            Content
-            <div>
-                <span>Bears: {bears}</span>
-                <br />
-                <button onClick={() => increase(1)}>Increment +</button>
+        <>
+            <h2>Marks - the useful bookmark manager</h2>
+            <div className="container">
+                {marksList.map((id: string, _i: number) => (
+                    <div key={_i} className="card">
+                        {marks[id].id}
+                        <br />
+                        {marks[id].originalTitle}
+                        <br />
+                        &nbsp;
+                        <br />
+                        <a href={marks[id].url}>{marks[id].url}</a>
+                        <br />
+                        <button onClick={() => removeMark(id)}>remove</button>
+                    </div>
+                ))}
+                <button
+                    onClick={() =>
+                        addMark({
+                            originalTitle: 'Google',
+                            originalDescription: 'Search engine',
+                            url: 'https://www.google.com',
+                        })
+                    }
+                >
+                    add mark
+                </button>
             </div>
-        </div>
+            <p>bears: {bears}</p>
+            <button onClick={() => inc(1)}>increase</button>
+        </>
     );
 };

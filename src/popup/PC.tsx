@@ -1,10 +1,11 @@
 import React from 'react';
-import { BearState, useStore } from '../store/store';
+import { State, useStore } from '../store/store';
 import { parseUrl } from '../helpers/domain';
 
 export const PC: () => React.JSX.Element = () => {
-    const bears = useStore((state: BearState) => state.bears);
-    const increase = useStore((state: BearState) => state.increase);
+    const bears = useStore((state: State) => state.bears);
+    const increase = useStore((state: State) => state.increase);
+    const addMark = useStore((state: State) => state.addMark);
 
     const [tabInfo, setTabInfo] = React.useState('');
 
@@ -20,6 +21,8 @@ export const PC: () => React.JSX.Element = () => {
         console.log(url, title, favIconUrl, domain);
 
         setTabInfo(title);
+
+        addMark({ url, originalTitle: title, originalDescription: title });
     };
 
     return (

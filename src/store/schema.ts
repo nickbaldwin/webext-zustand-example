@@ -22,10 +22,6 @@ export class Mark {
     }
 }
 
-/*
-
-
-
 export interface CommonInfo {
     id: string;
     version: number;
@@ -34,8 +30,6 @@ export interface CommonInfo {
     title: string;
     description: string;
 }
-
-
 
 export interface MarkInfo {
     domain: string;
@@ -76,26 +70,3 @@ export type CollectionsList = Array<string>;
 export type FoldersList = Array<string>;
 
 export interface Data {}
-
-interface State {
-    bears: number;
-    increase: (by: number) => void;
-
-    results: string[];
-    updateResults: (add: string) => void;
-
-    marksList: MarksList;
-    marksMap: MarksMap;
-    addMark: (add: UrlInfo) => void;
-    removeMark: (id: string) => void;
-
-    collectionsList: CollectionsList;
-    collectionsMap: CollectionsMap;
-    addCollections: (add: Collection) => void;
-
-    foldersList: FoldersList;
-    foldersMap: FoldersMap;
-    addFolders: (add: Folder) => void;
-}
-
- */

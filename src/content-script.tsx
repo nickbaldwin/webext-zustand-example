@@ -1,22 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { useBearStore, storeReadyPromise } from "./store/store";
+import { storeReadyPromise } from "./store/store";
+import { Content } from "./newtab/Content";
 
-const Content = () => {
-    const bears = useBearStore((state) => state.bears);
-    const increase = useBearStore((state) => state.increase);
-
-    return (
-        <div>
-            Content
-        <div>
-        <span>Bears: {bears}</span>
-        <br />
-        <button onClick={() => increase(1)}>Increment +</button>
-        </div>
-        </div>
-    );
-};
 
 storeReadyPromise.then(() => {
 

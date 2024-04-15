@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { wrapStore } from "webext-zustand";
+import { create } from 'zustand';
+import { wrapStore } from 'webext-zustand';
 // wrapStore: <T>(store: StoreApi<T>) => Promise<void>;
 
 export interface BearState {

@@ -1,8 +1,8 @@
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { crx } from "@crxjs/vite-plugin";
-import manifest from "./manifest";
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { crx } from '@crxjs/vite-plugin';
+import manifest from './manifest';
 
 export default defineConfig({
     server: {
@@ -12,12 +12,9 @@ export default defineConfig({
             port: 5175,
         },
     },
-    root: resolve(__dirname, "src"),
+    root: resolve(__dirname, 'src'),
     build: {
-        outDir: resolve(__dirname, "dist"),
+        outDir: resolve(__dirname, 'dist'),
     },
-    plugins: [
-        react(),
-        crx({ manifest })
-    ],
+    plugins: [react(), crx({ manifest })],
 });

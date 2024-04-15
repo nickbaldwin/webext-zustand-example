@@ -1,5 +1,5 @@
-import React from "react";
-import {BearState, useBearStore} from "../store/store";
+import React from 'react';
+import { BearState, useBearStore } from '../store/store';
 
 export const PC: () => React.JSX.Element = () => {
     const bears = useBearStore((state: BearState) => state.bears);
@@ -16,4 +16,3 @@ export const PC: () => React.JSX.Element = () => {
         </div>
     );
 };
-

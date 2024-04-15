@@ -16,7 +16,7 @@ js: ["content-script.tsx"],
 ],
 host_permissions: ["<all_urls>"],
 action: {
-default_popup: "popup/popup.html",
+default_popup: "popup.html",
 },
 permissions: ["storage", "tabs"],
 }));

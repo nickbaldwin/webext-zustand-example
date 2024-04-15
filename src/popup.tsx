@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import {  storeReadyPromise } from "../store";
-import { PC } from "./PC";
+import {  storeReadyPromise } from "./store";
+import { PC } from "./popup/PC";
 
 
 storeReadyPromise.then(() => {

@@ -14,6 +14,7 @@ import {
     FoldersList,
     FoldersMap,
     UrlInfo,
+    BasicInfo,
 } from './schema';
 
 // wrapStore: <T>(store: StoreApi<T>) => Promise<void>;
@@ -32,7 +33,7 @@ export interface State {
 
     collectionsList: CollectionsList;
     collectionsMap: CollectionsMap;
-    addCollection: (add: Collection) => void;
+    addCollection: (add: BasicInfo) => void;
     removeCollection: (add: Collection) => void;
 
     foldersList: FoldersList;
@@ -85,9 +86,23 @@ export const useStore = create<State>()(
 
         collectionsList: [],
         collectionsMap: {},
-        addCollection: (add: Collection) => {
-            console.log('addCollection', add);
+
+        addCollection: (add: BasicInfo) => {
+            const collection = new Collection(add);
+            set(
+                (state: {
+                    collectionsList: string[];
+                    collectionsMap: CollectionsMap;
+                }) => ({
+                    collectionsList: [...state.collectionsList, collection.id],
+                    collectionsMap: {
+                        ...state.collectionsMap,
+                        [collection.id]: collection,
+                    },
+                })
+            );
         },
+
         removeCollection: (id: Collection) => {
             console.log('removeCollection', id);
         },

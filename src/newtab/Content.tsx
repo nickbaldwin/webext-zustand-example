@@ -17,6 +17,7 @@ export const Content = () => {
         (state) => state.collectionsMap
     );
     const addCollection = useStore((state) => state.addCollection);
+    const removeCollection = useStore((state) => state.removeCollection);
 
     const marksList: MarksList = useStore((state) => state.marksList);
     const marks: MarksMap = useStore((state) => state.marksMap);
@@ -37,6 +38,9 @@ export const Content = () => {
                         {collections[id].title}
                         <br />
                         &nbsp;
+                        <button onClick={() => removeCollection(id)}>
+                            remove
+                        </button>
                     </div>
                 ))}
                 <br />

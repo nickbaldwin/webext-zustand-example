@@ -34,7 +34,7 @@ export interface State {
     collectionsList: CollectionsList;
     collectionsMap: CollectionsMap;
     addCollection: (add: BasicInfo) => void;
-    removeCollection: (add: Collection) => void;
+    removeCollection: (id: string) => void;
 
     foldersList: FoldersList;
     foldersMap: FoldersMap;
@@ -103,8 +103,29 @@ export const useStore = create<State>()(
             );
         },
 
-        removeCollection: (id: Collection) => {
-            console.log('removeCollection', id);
+        removeCollection: (id: string) => {
+            set(
+                (state: {
+                    collectionsList: string[];
+                    collectionsMap: CollectionsMap;
+                }) => {
+                    if (!state.collectionsMap[id]) {
+                        return state;
+                    } else {
+                        const i = state.collectionsList.indexOf(id);
+                        const list = [...state.collectionsList];
+                        if (i > -1) {
+                            list.splice(i, 1);
+                        }
+                        const map = { ...state.collectionsMap };
+                        delete map[id];
+                        return {
+                            collectionsList: list,
+                            collectionsMap: map,
+                        };
+                    }
+                }
+            );
         },
 
         foldersList: [],

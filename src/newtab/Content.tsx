@@ -32,17 +32,44 @@ export const Content = () => {
         <>
             <h2>Marks - the useful bookmark manager</h2>
             <div className="container">
-                <p>collections</p>
+                <h2>collections</h2>
                 {collectionsList.map((id: string, _i: number) => (
-                    <div key={_i} className="card">
-                        {collections[id].title}
+                    <>
+                        <div key={_i} className="collection">
+                            <h3>{collections[id].title}</h3>
+                            <br />
+                            &nbsp;
+                            <button onClick={() => removeCollection(id)}>
+                                remove
+                            </button>
+                        </div>
                         <br />
-                        &nbsp;
-                        <button onClick={() => removeCollection(id)}>
-                            remove
-                        </button>
-                    </div>
+                        <div className="container">
+                            {collections[id].list.map(
+                                (id: string, _j: number) => (
+                                    <div key={_i + '' + _j} className="card">
+                                        {marks[id].id}
+                                        <br />
+                                        {marks[id].originalTitle}
+                                        <br />
+                                        &nbsp;
+                                        <br />
+                                        <a href={marks[id].url}>
+                                            {marks[id].url}
+                                        </a>
+                                        <br />
+                                        <button onClick={() => removeMark(id)}>
+                                            remove
+                                        </button>
+                                    </div>
+                                )
+                            )}
+                        </div>
+                        <br />
+                    </>
                 ))}
+                <br />
+
                 <br />
                 <input
                     type="text"
@@ -61,6 +88,8 @@ export const Content = () => {
                 >
                     add new collection
                 </button>
+
+                <br />
             </div>
 
             <div className="container">

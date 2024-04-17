@@ -30,6 +30,7 @@ export interface State {
     marksMap: MarksMap;
     addMark: (add: UrlInfo) => void;
     removeMark: (id: string) => void;
+    addMarkToCollection: (add: UrlInfo, id: string) => void;
 
     collectionsList: CollectionsList;
     collectionsMap: CollectionsMap;
@@ -62,6 +63,29 @@ export const useStore = create<State>()(
                     [mark.id]: mark,
                 },
             }));
+        },
+
+        addMarkToCollection: (add: UrlInfo, id: string) => {
+            const mark = new Mark(add);
+            set(
+                (state: {
+                    marksList: string[];
+                    marksMap: MarksMap;
+                    collectionsMap: CollectionsMap;
+                }) => ({
+                    collectionsMap: {
+                        ...state.collectionsMap,
+                        [id]: {
+                            ...state.collectionsMap[id],
+                            list: [...state.collectionsMap[id].list, mark.id],
+                        },
+                    },
+                    marksMap: {
+                        ...state.marksMap,
+                        [mark.id]: mark,
+                    },
+                })
+            );
         },
 
         removeMark: (id: string) => {
